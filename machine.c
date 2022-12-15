@@ -1122,7 +1122,7 @@ void preinit_machine( struct machine *oric )
   oric->prclose = 0;
   oric->lasttapefile[0] = 0;
   oric->keymap = KMAP_QWERTY;
-  oric->statusbar_mode = STATUSBARMODE_FULL;
+  oric->statusbar_mode = STATUSBARMODE_NONE;
   oric->popupstr[0] = 0;
   oric->newpopupstr = SDL_FALSE;
   oric->popuptime = 0;

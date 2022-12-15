@@ -8,7 +8,7 @@
 # ifdef __SPECIFY_SDL_DIR__
 # include <SDL2/SDL.h>
 # else
-# include <SDL.h>
+# include <SDL/SDL.h>
 # endif
 #endif
 

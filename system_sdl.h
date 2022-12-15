@@ -22,34 +22,11 @@
 #ifndef ORICUTRON_SYSTEM_SDL_H
 #define ORICUTRON_SYSTEM_SDL_H
 
-#if SDL_MAJOR_VERSION == 1
-# ifdef __SPECIFY_SDL_DIR__
-# include <SDL/SDL.h>
-# include <SDL/SDL_version.h>
-# ifdef WANT_WMINFO
-# include <SDL/SDL_syswm.h>
-# endif
-# else
-# include <SDL.h>
-# include <SDL_version.h>
-# ifdef WANT_WMINFO
-# include <SDL_syswm.h>
-# endif
-# endif
-#else /* SDL_MAJOR_VERSION == 1 */
-# ifdef __SPECIFY_SDL_DIR__
-# include <SDL2/SDL.h>
-# include <SDL2/SDL_version.h>
-# ifdef WANT_WMINFO
-# include <SDL2/SDL_syswm.h>
-# endif
-# else
-# include <SDL.h>
-# include <SDL_version.h>
-# ifdef WANT_WMINFO
-# include <SDL_syswm.h>
-# endif
-# endif
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_version.h>
+
+#ifdef WANT_WMINFO
+#include <SDL2/SDL_syswm.h>
 #endif
 
 #if SDL_BYTEORDER == SDL_LIL_ENDIAN
@@ -73,25 +50,6 @@
 #endif
 
 /* SDL compatability definitions and macroses */
-#if SDL_MAJOR_VERSION == 1
-typedef Uint16 SDL_COMPAT_KEY;        /* Used in 8912.c */
-typedef SDL_keysym SDL_KEYSYM;
-typedef SDL_VideoInfo SDL_COMPAT_VideoInfo;
-
-#define SDL_COMPAT_HWSURFACE          SDL_HWSURFACE
-#define SDL_COMPAT_HWPALETTE          SDL_HWPALETTE
-#define SDL_COMPAT_FULLSCREEN         SDL_FULLSCREEN
-
-#ifdef __OPENGL_AVAILABLE__
-#define SDL_COMPAT_OPENGL             SDL_OPENGL
-#endif
-
-#define SDL_COMPAT_LOGPAL             SDL_LOGPAL
-#define SDL_COMPAT_PHYSPAL            SDL_PHYSPAL
-
-#define SDL_COMPAT_ACTIVEEVENT        SDL_ACTIVEEVENT
-
-#else
 typedef Uint32 SDL_COMPAT_KEY;        /* Used in 8912.c */
 typedef SDL_Keysym SDL_KEYSYM;
 typedef SDL_RendererInfo SDL_COMPAT_VideoInfo;
@@ -124,7 +82,6 @@ typedef SDL_RendererInfo SDL_COMPAT_VideoInfo;
 #define SDLK_KP9                      SDLK_KP_9
 
 #define SDLK_PRINT                    SDLK_PRINTSCREEN
-#endif
 
 /* SDL compatability protos */
 #ifdef WANT_WMINFO

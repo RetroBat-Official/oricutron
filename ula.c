@@ -437,10 +437,10 @@ void ula_set_dirty( struct machine *oric )
 void preinit_ula( struct machine *oric )
 {
   oric->scr = NULL;
-  oric->aratio = SDL_TRUE;
-  oric->hstretch = SDL_TRUE;
+  oric->aratio = SDL_FALSE;
+  oric->hstretch = SDL_FALSE;
   oric->scanlines = SDL_FALSE;
-  oric->palghost = SDL_TRUE;
+  oric->palghost = SDL_FALSE;
 }
 
 SDL_bool init_ula( struct machine *oric )

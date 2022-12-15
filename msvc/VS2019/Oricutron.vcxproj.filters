@@ -275,6 +275,9 @@
     <ClInclude Include="..\..\plugins\twilighte_board\oric_twilighte_board_plugin.h">
       <Filter>Header Files\plugins</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="make_links.cmd">
