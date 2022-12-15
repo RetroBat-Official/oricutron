@@ -188,8 +188,8 @@ SDL_bool msgbox( struct machine *oric, int type, char *msg )
 
       case SDL_MOUSEMOTION:
         if( presson != -1 ) break;
-        mx = (event.motion.x - tz[TZ_MSGBOX]->x)/8;
-        my = (event.motion.y - tz[TZ_MSGBOX]->y)/12;
+        mx = (MOUSEX(event.motion.x) - tz[TZ_MSGBOX]->x)/8;
+        my = (MOUSEY(event.motion.y) - tz[TZ_MSGBOX]->y)/12;
         i = msgbox_checkover( mx, my );
         if( i == -1 ) break;
         if( i != cbtn )
@@ -202,8 +202,8 @@ SDL_bool msgbox( struct machine *oric, int type, char *msg )
       case SDL_MOUSEBUTTONDOWN:
         if( event.button.button == SDL_BUTTON_LEFT )
         {
-          mx = (event.motion.x - tz[TZ_MSGBOX]->x)/8;
-          my = (event.motion.y - tz[TZ_MSGBOX]->y)/12;
+          mx = (MOUSEX(event.motion.x) - tz[TZ_MSGBOX]->x)/8;
+          my = (MOUSEY(event.motion.y) - tz[TZ_MSGBOX]->y)/12;
           i = msgbox_checkover( mx, my );
           if( i == -1 ) break;
           cbtn = i;
@@ -216,8 +216,8 @@ SDL_bool msgbox( struct machine *oric, int type, char *msg )
         if( event.button.button == SDL_BUTTON_LEFT )
         {
           if( presson == -1 ) break;
-          mx = (event.motion.x - tz[TZ_MSGBOX]->x)/8;
-          my = (event.motion.y - tz[TZ_MSGBOX]->y)/12;
+          mx = (MOUSEX(event.motion.x) - tz[TZ_MSGBOX]->x)/8;
+          my = (MOUSEY(event.motion.y) - tz[TZ_MSGBOX]->y)/12;
           i = msgbox_checkover( mx, my );
           if( i == presson )
           {

@@ -83,8 +83,8 @@ static SDL_Window* g_window = NULL;
 static SDL_Surface* g_icon = NULL;
 
 static int g_bpp = 0;
-static int g_width = 0;
-static int g_height = 0;
+int g_width = 0;
+int g_height = 0;
 
 static int g_lastx = SDL_WINDOWPOS_CENTERED;
 static int g_lasty = SDL_WINDOWPOS_CENTERED;

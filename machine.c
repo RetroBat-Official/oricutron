@@ -1294,7 +1294,7 @@ SDL_bool emu_event( SDL_Event *ev, struct machine *oric, SDL_bool *needrender )
       {
         case SDL_BUTTON_LEFT:
           lightpendown = SDL_TRUE;
-          move_lightpen( oric, ev->button.x, ev->button.y );
+          move_lightpen( oric, MOUSEX(ev->button.x), MOUSEY(ev->button.y) );
           break;
 
         case SDL_BUTTON_RIGHT:
@@ -1310,7 +1310,7 @@ SDL_bool emu_event( SDL_Event *ev, struct machine *oric, SDL_bool *needrender )
       break;
 
     case SDL_MOUSEMOTION:
-      move_lightpen( oric, ev->motion.x, ev->motion.y );
+      move_lightpen( oric, MOUSEX(ev->motion.x), MOUSEY(ev->motion.y) );
       break;
 
     case SDL_KEYUP:

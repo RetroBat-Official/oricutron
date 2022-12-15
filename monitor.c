@@ -4277,8 +4277,8 @@ SDL_bool mon_event( SDL_Event *ev, struct machine *oric, SDL_bool *needrender )
         SDL_bool dblclk;
 
         leftclick[1]      = leftclick[0];
-        leftclick[0].x    = ev->button.x;
-        leftclick[0].y    = ev->button.y;
+        leftclick[0].x    = MOUSEX(ev->button.x);
+        leftclick[0].y    = MOUSEY(ev->button.y);
         leftclick[0].time = SDL_GetTicks();
 
         if( clickzone( tz[TZ_REGS], &tx, &ty, &dblclk ) )

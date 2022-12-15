@@ -344,15 +344,15 @@ SDL_bool filerequester( struct machine *oric, char *title, char *path, char *fna
     switch( event.type )
     {
       case SDL_MOUSEMOTION:
-        mx = (event.motion.x - tz[TZ_FILEREQ]->x)/8;
-        my = (event.motion.y - tz[TZ_FILEREQ]->y)/12;
+        mx = (MOUSEX(event.motion.x) - tz[TZ_FILEREQ]->x)/8;
+        my = (MOUSEY(event.motion.y) - tz[TZ_FILEREQ]->y)/12;
         break;
 
       case SDL_MOUSEBUTTONDOWN:
         if( event.button.button == SDL_BUTTON_LEFT )
         {
-          mx = (event.button.x - tz[TZ_FILEREQ]->x)/8;
-          my = (event.button.y - tz[TZ_FILEREQ]->y)/12;
+          mx = (MOUSEX(event.button.x) - tz[TZ_FILEREQ]->x)/8;
+          my = (MOUSEY(event.button.y) - tz[TZ_FILEREQ]->y)/12;
           mclick = SDL_GetTicks();
         }
         break;

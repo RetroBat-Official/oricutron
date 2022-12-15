@@ -1868,7 +1868,6 @@ void clipbd_paste_gui( struct machine *oric, struct osdmenuitem *mitem, int dumm
 }
 #endif
 
-
 /************************* End of menu callable funcs *******************************/
 
 // This is the event handler for when you are in the menus
@@ -1886,15 +1885,15 @@ SDL_bool menu_event( SDL_Event *ev, struct machine *oric, SDL_bool *needrender )
   switch( ev->type )
   {
     case SDL_MOUSEMOTION:
-      x = (ev->motion.x - tz[TZ_MENU]->x)/8;
-      y = (ev->motion.y - tz[TZ_MENU]->y)/12-1;
+      x = (MOUSEX(ev->motion.x) - tz[TZ_MENU]->x)/8;
+      y = (MOUSEY(ev->motion.y) - tz[TZ_MENU]->y)/12-1;
       break;
 
     case SDL_MOUSEBUTTONDOWN:
       if( ev->button.button == SDL_BUTTON_LEFT )
       {
-        x = (ev->button.x - tz[TZ_MENU]->x)/8;
-        y = (ev->button.y - tz[TZ_MENU]->y)/12-1;
+        x = (MOUSEX(ev->button.x) - tz[TZ_MENU]->x)/8;
+        y = (MOUSEY(ev->button.y) - tz[TZ_MENU]->y)/12-1;
       }
       break;
   }
@@ -1909,8 +1908,8 @@ SDL_bool menu_event( SDL_Event *ev, struct machine *oric, SDL_bool *needrender )
 
     case SDL_MOUSEMOTION:
     case SDL_MOUSEBUTTONDOWN:
-      x = (ev->motion.x - tz[TZ_MENU]->x)/8;
-      y = (ev->motion.y - tz[TZ_MENU]->y)/12-1;
+      x = (MOUSEX(ev->motion.x) - tz[TZ_MENU]->x)/8;
+      y = (MOUSEY(ev->motion.y) - tz[TZ_MENU]->y)/12-1;
 
       if( ( x < 0 ) || ( y < 0 ) ||
           ( x >= tz[TZ_MENU]->w ) )

@@ -72,4 +72,10 @@
 /* SDL related stuff */
 #include "system_sdl.h"
 
+extern int g_width;
+extern int g_height;
+
+#define MOUSEX(x) (x * 640) / g_width
+#define MOUSEY(x) (x  * 480) / g_height
+
 #endif /* ORICUTRON_SYSTEM_H */
